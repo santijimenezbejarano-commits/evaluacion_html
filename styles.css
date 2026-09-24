@@ -156,6 +156,10 @@ body {
     animation-delay: 0.45s;
 }
 
+.servicio-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
 
 .servicio-card:hover {
     transform: translateY(-8px);
