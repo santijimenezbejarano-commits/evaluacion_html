@@ -1,0 +1,386 @@
+:root {
+    --primary-blue: #1e40af;
+    --primary-blue-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --accent-blue: #0284c7;
+    --accent-glow: rgba(30, 64, 175, 0.15);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-badge: #dbeafe;
+
+    --border-color: #e2e8f0;
+    --border-hover: #93c5fd;
+
+    --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    --shadow-hover: 0 20px 30px -10px rgba(30, 64, 175, 0.18), 0 10px 15px -3px rgba(15, 23, 42, 0.06);
+
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+#servicios {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    animation: fadeInSection 0.8s ease-out forwards;
+}
+
+.servicios-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px auto;
+    animation: slideDownHeader 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.servicios-header .badge-seccion {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: var(--bg-badge);
+    color: var(--primary-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-full);
+    margin-bottom: 14px;
+    border: 1px solid rgba(30, 64, 175, 0.15);
+}
+
+.servicios-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.servicios-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.servicios-grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+}
+
+.servicio-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    animation: fadeInUpCard 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.servicio-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.servicio-card.destacado {
+    border-color: rgba(30, 64, 175, 0.4);
+    box-shadow: 0 12px 28px -4px rgba(30, 64, 175, 0.14), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.servicio-card.destacado::before {
+    opacity: 1;
+}
+
+.tag-popular {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: var(--primary-blue);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
+}
+
+.servicio-card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.servicio-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.servicio-card:nth-child(3) {
+    animation-delay: 0.45s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-hover);
+}
+
+.servicio-card:hover::before {
+    opacity: 1;
+}
+
+.servicio-card:hover .icono-contenedor {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 16px rgba(30, 64, 175, 0.25);
+}
+
+.servicio-card:hover .icono-contenedor svg {
+    stroke: #ffffff;
+}
+
+.servicio-card:hover .icono-contenedor img {
+    filter: brightness(0) invert(1);
+}
+
+.servicio-top {
+    margin-bottom: 24px;
+}
+
+.icono-contenedor {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-light);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.icono-contenedor img,
+.icono-contenedor svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--primary-blue);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    transition: var(--transition-smooth);
+}
+
+.servicio-card h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.servicio-card .descripcion {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.caracteristicas-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.caracteristicas-lista li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.caracteristicas-lista li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #e0f2fe;
+    color: var(--accent-blue);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.tarifa-contenedor {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.tarifa-info {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.tarifa-info .etiqueta-precio {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tarifa-info .precio {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.tarifa-info .moneda {
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.tarifa-info .periodo {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.btn-servicio {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 13px 20px;
+    background-color: var(--primary-light);
+    color: var(--primary-blue);
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 1px solid rgba(30, 64, 175, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.btn-servicio:hover {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.25);
+}
+
+.servicio-card.destacado .btn-servicio {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+}
+
+.servicio-card.destacado .btn-servicio:hover {
+    background-color: var(--primary-blue-hover);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+}
+
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpCard {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicios-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .servicios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .servicios-header h2 {
+        font-size: 2.6rem;
+    }
+}
