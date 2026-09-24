@@ -1,4 +1,4 @@
-body {
+:root {
     --primary-blue: #1e40af;
     --primary-blue-hover: #1d4ed8;
     --primary-light: #eff6ff;
@@ -156,6 +156,7 @@ body {
     animation-delay: 0.45s;
 }
 
+
 .servicio-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
@@ -195,8 +196,8 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    transition: var(--transition-smooth);
     border: 1px solid rgba(30, 64, 175, 0.1);
+    transition: var(--transition-smooth);
 }
 
 .icono-contenedor img,
@@ -364,6 +365,7 @@ body {
         transform: translateY(0);
     }
 }
+
 
 @media (min-width: 768px) {
     .servicios-grid {
